@@ -66,8 +66,16 @@ class Products with ChangeNotifier {
   //   notifyListeners();
   // }
 
-  void addProducts() {
-    // _items.add(value);
+  void addProducts(Product product) {
+    final newProduct = Product(
+      id: DateTime.now().toString(),
+      title: product.title,
+      price: product.price,
+      description: product.description,
+      imageUrl: product.imageUrl,
+    );
+    _items.add(newProduct);
+    // _items.insert(0, newProduct); // at the beginning of the list
     notifyListeners();
   }
 }
